@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/FitMyBike/DL_Models/keypoints_finder.onnx
+/FitMyBike/DL_Models/person_locator.onnx
+/FitMyBike/DL_Models/vitpose-s-wholebody.onnx
