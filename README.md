@@ -1,5 +1,5 @@
 # FitMyBike  🚴
-A **C#** application for basic bike‑fit analysis using camera input and ONNX person finder and pose‑estimation models.
+A **C#** application for basic bike‑fit analysis using video or image input and ONNX person finder and pose‑estimation models.
 
 FitMyBike enables quick and simple rider‑position analysis based on photos or video recordings. It combines pose estimation, geometric calculations, and an intuitive interface to help cyclists and bike‑fitters evaluate bike setup.
 
