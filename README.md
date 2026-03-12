@@ -1,69 +1,70 @@
-**FitMyBike** is a C# application designed to support basic, camera‑based bike‑fit analysis.
+# FitMyBike  🚴
+A **C#** application for basic bike‑fit analysis using camera input and ONNX person finder and pose‑estimation models.
 
+FitMyBike enables quick and simple rider‑position analysis based on photos or video recordings. It combines pose estimation, geometric calculations, and an intuitive interface to help cyclists and bike‑fitters evaluate bike setup.
 
-Its functions revolve around three core areas:
+---
 
-📸 1. Video and image processing
+## ✨ Features
 
-The app lets you load rider photos or videos and extract key body‑position information. Typical functions include:
+### 📸 Image and Video Processing  
+FitMyBike loads rider photos or videos and extracts key body‑position information.
 
-Detecting joint points (hips, knees, ankles, shoulders) using ONNX pose‑estimation models.
+- Detects joint points (hips, knees, ankles, shoulders) using ONNX models  
+- Draws overlays, angle lines, and markers directly on the image  
+- Tracks posture frame‑by‑frame  
+- Allows manual correction of detected points  
+- Provides a simple spin‑stage visualization for video analysis  
 
-Drawing overlays and angle lines directly on the image.
+---
 
-Tracking rider posture frame‑by‑frame for consistency.
+## 📐 Angle and Geometry Calculations  
+Once joints are detected, the app computes the most important bike‑fit angles:
 
-Adjusting manualy detected points for each frame.
+- Knee extension angle  
+- Hip angle  
+- Torso angle  
+- Arm reach angle  
 
-Provides an overview of spin stage and lets you analyze your vids in a simple way.
+These measurements help determine whether the rider is too stretched, too cramped, or misaligned.
 
+---
 
-📐 2. Angle and geometry calculations
+## 🧩 ONNX Model Integration  
+The application uses ONNX Runtime to run lightweight pose‑estimation models locally.
 
-Once the pose is detected, the app computes the angles most relevant to bike fitting, such as:
+- Loads ONNX models  
+- Runs inference on images  
+- Converts model output into usable joint coordinates  
 
-  Knee extension angle
-  
-  Hip angle
-  
-  Torso angle
-  
-  Arm reach angle
-  
-These calculations help identify whether the rider is too stretched, too cramped, or misaligned.
+---
 
+## 🖥️ UI and Workflow  
+FitMyBike provides a simple workflow from loading media to exporting results.
 
-🚲 3. Fit guidance and comparison
+- Image and video input management  
+- Spin‑stage visualization  
+- Manual point adjustment  
+- Measurement overlays and angle lines  
 
-The tool can compare measured angles against typical recommended ranges for different riding styles (e.g., road, gravel, MTB). Functions often include:
+---
 
-Highlighting angles that fall outside recommended ranges
+## 🛠️ Tech Stack
 
-Suggesting which bike components might need adjustment (saddle height, setback, handlebar reach)
+- **C#**
+- **ML.NET**
+- **ONNX Runtime**  
+- **WPF** 
+- **OpenCV (OpenCVSharp) **
 
-Allowing before/after comparison when testing different setups
+---
 
+## 📄 Licenses for used ONNX models
 
-🧩 4. ONNX model integration
+**ViT Pose** -> https://github.com/ViTAE-Transformer/ViTPose/blob/main/LICENSE
+---
+https://huggingface.co/docs/transformers/model_doc/vitpose
 
-The project uses ONNX runtime to run lightweight pose‑estimation models locally. Functions handle:
-
-Loading the model
-
-Running inference on images
-
-Converting model output into usable joint coordinates
-
-
-🖥️ 5. UI and workflow helpers
-
-The app includes functions for:
-
-Managing image/video input
-
-Vizualizing spin stage
-
-Manually moving detected points and adjusting them as needed
-Displaying measurement overlays
-Saving annotated images
-Providing a simple workflow from loading → analyzing → exporting results
+**Person finder** -> https://huggingface.co/Xenova/yolos-base
+---
+https://huggingface.co/docs/transformers/tasks/object_detection
